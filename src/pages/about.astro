@@ -1,5 +1,17 @@
 ---
+const pageTitle = "私について";
+const identity = {
+  firstName: "常盤しのぶ",
+  country: "大阪",
+  occupation: "おもしろ人間",
+  hobbies: ["Twitter", "映画", "やきう"],
+};
 
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "ドキュメントの執筆"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,15 +20,34 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<a href="/">ホーム</a>
         <a href="/about/">概要</a>
         <a href="/blog/">記事</a>
-		<h1>about</h1>
+		<title>{pageTitle}</title>
         <h2>Astroを学習しよう</h2>
         <p>そういう場所ですここは</p>
         <p>参考サイト<a href="https://docs.astro.build/ja/tutorial/2-pages/1/">こ↑こ↓</a></p>
+
+        <p>以下は私に関するいくつかの事実です。</p>
+<ul>
+  <li>私の名前は{identity.firstName}です。</li>
+  <li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
+  {identity.hobbies.length >= 3 &&
+    <li>私の趣味は{identity.hobbies[0]}と{identity.hobbies[1]}と{identity.hobbies[2]}です。</li>
+  }
+</ul>
+<p>私のスキルは以下の通りです。</p>
+<ul>
+  {skills.map((skill) => <li>{skill}</li>)}
+</ul>
+
+{happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
+
+{finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
+
+{goal === 3 ? <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
 	</body>
 </html>
