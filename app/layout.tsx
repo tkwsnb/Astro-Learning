@@ -3,6 +3,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from './providers'
 import { Toaster } from 'react-hot-toast'
+import { initializeApp } from '@/lib/init'
+
+// アプリケーション初期化
+initializeApp()
 
 const inter = Inter({ subsets: ['latin'] })
 
